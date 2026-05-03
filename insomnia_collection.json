@@ -1,0 +1,231 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-04-26",
+  "__export_source": "insomnia.desktop.app",
+  "resources": [
+    {
+      "_id": "wrk_calculadora",
+      "_type": "workspace",
+      "name": "Calculadora Escolar API",
+      "description": "API de Gestão de Carga Horária"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "parentId": "wrk_calculadora",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3333",
+        "token": ""
+      }
+    },
+
+    {
+      "_id": "fld_professor",
+      "_type": "request_group",
+      "parentId": "wrk_calculadora",
+      "name": "1 — Professor"
+    },
+    {
+      "_id": "req_register",
+      "_type": "request",
+      "parentId": "fld_professor",
+      "name": "POST /register — Cadastrar Professor",
+      "method": "POST",
+      "url": "{{ _.base_url }}/register",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Ana Paula Souza\",\n  \"email\": \"ana@escola.com\",\n  \"senha\": \"senha123\"\n}"
+      }
+    },
+    {
+      "_id": "req_login",
+      "_type": "request",
+      "parentId": "fld_professor",
+      "name": "POST /login — Login (copie o token!)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/login",
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"ana@escola.com\",\n  \"senha\": \"senha123\"\n}"
+      }
+    },
+    {
+      "_id": "req_prof_me",
+      "_type": "request",
+      "parentId": "fld_professor",
+      "name": "GET /professores/me — Ver Perfil",
+      "method": "GET",
+      "url": "{{ _.base_url }}/professores/me",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ _.token }}" }],
+      "body": {}
+    },
+    {
+      "_id": "req_prof_update",
+      "_type": "request",
+      "parentId": "fld_professor",
+      "name": "PUT /professores/me — Atualizar Nome",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/professores/me",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Ana Paula Souza Silva\"\n}"
+      }
+    },
+    {
+      "_id": "req_prof_delete",
+      "_type": "request",
+      "parentId": "fld_professor",
+      "name": "DELETE /professores/me — Deletar Conta",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/professores/me",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ _.token }}" }],
+      "body": {}
+    },
+
+    {
+      "_id": "fld_escola",
+      "_type": "request_group",
+      "parentId": "wrk_calculadora",
+      "name": "2 — Escola"
+    },
+    {
+      "_id": "req_escola_create",
+      "_type": "request",
+      "parentId": "fld_escola",
+      "name": "POST /escolas — Criar Escola",
+      "method": "POST",
+      "url": "{{ _.base_url }}/escolas",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"EMEF João Pessoa\"\n}"
+      }
+    },
+    {
+      "_id": "req_escola_list",
+      "_type": "request",
+      "parentId": "fld_escola",
+      "name": "GET /escolas — Listar",
+      "method": "GET",
+      "url": "{{ _.base_url }}/escolas",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ _.token }}" }],
+      "body": {}
+    },
+    {
+      "_id": "req_escola_show",
+      "_type": "request",
+      "parentId": "fld_escola",
+      "name": "GET /escolas/1 — Buscar por ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/escolas/1",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ _.token }}" }],
+      "body": {}
+    },
+    {
+      "_id": "req_escola_update",
+      "_type": "request",
+      "parentId": "fld_escola",
+      "name": "PUT /escolas/1 — Atualizar",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/escolas/1",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"EMEF João Pessoa Atualizada\"\n}"
+      }
+    },
+    {
+      "_id": "req_escola_delete",
+      "_type": "request",
+      "parentId": "fld_escola",
+      "name": "DELETE /escolas/1 — Deletar",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/escolas/1",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ _.token }}" }],
+      "body": {}
+    },
+
+    {
+      "_id": "fld_carga",
+      "_type": "request_group",
+      "parentId": "wrk_calculadora",
+      "name": "3 — Carga Horária"
+    },
+    {
+      "_id": "req_carga_create",
+      "_type": "request",
+      "parentId": "fld_carga",
+      "name": "POST /cargas — Criar Carga Horária",
+      "method": "POST",
+      "url": "{{ _.base_url }}/cargas",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"escola_id\": 1,\n  \"periodosSemanais\": 4,\n  \"duracaoPeriodo\": 50,\n  \"semanasTrim1\": 12,\n  \"semanasTrim2\": 10,\n  \"semanasTrim3\": 11\n}"
+      }
+    },
+    {
+      "_id": "req_carga_list",
+      "_type": "request",
+      "parentId": "fld_carga",
+      "name": "GET /cargas — Listar",
+      "method": "GET",
+      "url": "{{ _.base_url }}/cargas",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ _.token }}" }],
+      "body": {}
+    },
+    {
+      "_id": "req_carga_show",
+      "_type": "request",
+      "parentId": "fld_carga",
+      "name": "GET /cargas/1 — Buscar por ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/cargas/1",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ _.token }}" }],
+      "body": {}
+    },
+    {
+      "_id": "req_carga_update",
+      "_type": "request",
+      "parentId": "fld_carga",
+      "name": "PUT /cargas/1 — Atualizar",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/cargas/1",
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"periodosSemanais\": 5,\n  \"semanasTrim1\": 14\n}"
+      }
+    },
+    {
+      "_id": "req_carga_delete",
+      "_type": "request",
+      "parentId": "fld_carga",
+      "name": "DELETE /cargas/1 — Deletar",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/cargas/1",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ _.token }}" }],
+      "body": {}
+    }
+  ]
+}
