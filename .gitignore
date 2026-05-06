@@ -5,5 +5,7 @@ dist/
 .env.example
 .DS_Store
 ROO-MODULES/
-
+commit_md
+GUIA_TESTE_MULTIUSUARIO.md
+commit_md.md    
 
