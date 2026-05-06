@@ -5,7 +5,10 @@
   "main": "dist/server.js",
   "packageManager": "npm@9.0.0",
   "scripts": {
+    "db:reset": "ts-node src/database/resetDatabase.ts",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+    "clean": "git clean -fd",
+    "clean:dry": "git clean -nd",
     "build": "tsc",
     "start": "node dist/server.js",
     "typeorm": "typeorm-ts-node-commonjs",

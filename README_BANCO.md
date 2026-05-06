@@ -110,33 +110,13 @@ JWT_EXPIRES_IN=1d
 
 ---
 
-## PASSO 5 — Instalar dependências e iniciar o servidor
 
-Abra o terminal (PowerShell) dentro da pasta do projeto e execute:
 
-```powershell
-# Instalar o pnpm globalmente (só precisa fazer uma vez)
-npm install -g pnpm
 
-# Instalar as dependências do projeto
-pnpm install
-
-# Iniciar o servidor
-pnpm dev
-```
-
-Saída esperada no terminal:
-
-```
-✅ Banco de dados conectado com sucesso!
-🚀 Servidor rodando em http://localhost:3333
-```
-
-Se aparecer essa mensagem, o servidor está pronto e conectado ao banco.
 
 ---
 
-## PASSO 6 — Verificar as tabelas no MySQL Workbench
+## PASSO 5 — Verificar as tabelas no MySQL Workbench
 
 Após iniciar o servidor, atualize a conexão no MySQL Workbench.
 Expanda o banco `calculadora_escolar_db` e você verá:
@@ -197,6 +177,8 @@ TRUNCATE TABLE escolas;
 TRUNCATE TABLE professores;
 SET FOREIGN_KEY_CHECKS = 1;
 ```
+
+
 
 ---
 

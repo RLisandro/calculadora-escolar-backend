@@ -9,6 +9,16 @@ Desenvolvida como Trabalho Acadêmico SENAC 2026 para obtenção do Conceito B.
 
 **1. Abra a pasta correta no terminal**
 É fundamental que o terminal esteja aberto exatamente na pasta do projeto. No VS Code, vá em `File > Open Folder` e selecione a pasta `calculadora-escolar-backend`. 
+## Se necessário zerar o banco de dados: 
+
+```bash
+npm run db:reset
+``
+
+---`
+### Para apagar arquivos e pastas indesejados no projeto:
+ npm run clean
+---
 Se preferir usar o comando manual no terminal, navegue até a pasta:
 ```bash
 # Exemplo: mudando para o disco E: e entrando na pasta

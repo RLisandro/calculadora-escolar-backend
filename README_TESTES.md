@@ -2,7 +2,11 @@
 
 **URL base:** `http://localhost:3333`
 
----
+## Se necessário zerar o banco de dados: 
+
+```bash
+npm run db:reset
+```
 
 ## Como importar a collection no Insomnia
 
@@ -71,7 +75,7 @@ Resposta esperada — 201 Created:
 }
 ```
 
-Verificar no MySQL:
+## Verificar no MySQL as entradas e atributos criados:
 ```sql
 SELECT id, nome, email FROM professores;
 ```
@@ -204,10 +208,14 @@ Body JSON:
 
 Resposta esperada — 200 OK com o nome atualizado.
 
-Verificar no MySQL:
+## Verificar no MySQL: Obs.: Somente o campo atualizado aparecerá diferente.
+## Mudar o ID para apareer os dados do professor logado 
 ```sql
 SELECT nome, updated_at FROM professores WHERE id = 1;
 ```
+## Ou verificar todos os professores:
+```sql
+SELECT id, nome, email FROM professores;
 
 ---
 
@@ -370,9 +378,14 @@ Body JSON:
 
 Resposta esperada — 200 OK com os dados atualizados.
 
-Verificar no MySQL:
+## Verificar no MySQL:
 ```sql
 SELECT nome, updated_at FROM escolas WHERE id = 1;
+```
+## Ou verificar todas as escolas:
+
+```sql
+SELECT nome, updated_at FROM escolas;
 ```
 
 ---
@@ -560,7 +573,11 @@ Verificar no MySQL:
 SELECT periodosSemanais, horasSemanal, horasTrim1, totalHoras, updated_at
 FROM cargas_horarias WHERE id = 1;
 ```
-
+## Comparação do Horário anterior com o atual:
+```sql
+SELECT periodosSemanais, horasSemanal, horasTrim1, totalHoras, updated_at
+FROM cargas_horarias ;
+```
 ---
 
 ### 5.8 — Deletar Carga Horária

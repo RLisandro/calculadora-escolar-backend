@@ -1,3 +1,8 @@
+---
+modified: 2026-05-04T21:35:49.078Z
+title: Regras de Negócio - Calculadora Escolar Backend
+---
+
 # Regras de Negócio - Calculadora Escolar Backend
 
 Este documento detalha as diretrizes, fórmulas e a lógica da **Calculadora Escolar Backend**, uma plataforma desenvolvida exclusivamente para **auxiliar o professor** na gestão de sua carreira, carga horária e organização institucional.
